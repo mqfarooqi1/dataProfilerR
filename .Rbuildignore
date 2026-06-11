@@ -1,0 +1,6 @@
+^\.git$
+^\.gitignore$
+^figures$
+^\.Rproj\.user$
+^.*\.Rproj$
+^LICENSE\.md$

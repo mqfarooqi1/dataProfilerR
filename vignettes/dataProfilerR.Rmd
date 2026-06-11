@@ -1,0 +1,107 @@
+---
+title: "Profiling a dataset with dataProfilerR"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Profiling a dataset with dataProfilerR}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(collapse = TRUE, comment = "#>",
+                      fig.width = 7, fig.height = 4.5)
+```
+
+`dataProfilerR` turns a data frame into a structured profile with one call:
+type inference, missing-value analysis, summary statistics, normality tests,
+outlier detection, correlation, a data-quality score, and `ggplot2` figures.
+
+```{r setup}
+library(dataProfilerR)
+```
+
+## A deliberately messy dataset
+
+To show what the profiler surfaces, here is a small frame with missing values,
+an outlier, a constant column, and a high-cardinality text column.
+
+```{r data}
+set.seed(1)
+n <- 200
+df <- data.frame(
+  age        = round(rnorm(n, 40, 12)),
+  income     = c(rlnorm(n - 1, log(50000), 0.4), 5e6),   # one extreme outlier
+  signup     = as.Date("2025-01-01") + sample(0:600, n, replace = TRUE),
+  plan       = sample(c("free", "pro", "enterprise"), n, replace = TRUE),
+  region     = sample(c("NA", "EU", "APAC"), n, replace = TRUE),
+  constant   = 1L,                                        # zero-variance column
+  note       = replicate(n, paste(sample(letters, 12), collapse = "")),
+  stringsAsFactors = FALSE
+)
+df$income[sample(n, 20)] <- NA          # inject missingness
+df$plan[sample(n, 8)]    <- NA
+```
+
+## One call to profile it
+
+```{r profile}
+p <- profile_data(df, dataset_name = "customers")
+p
+```
+
+`print()` gives the headline: dimensions, type breakdown, missingness, and the
+quality score. Note the score is below 100 -- the missingness and the constant
+column both cost points.
+
+## Drilling in with summary()
+
+```{r summary}
+summary(p)
+```
+
+The numeric summary shows `income` is heavily right-skewed (large positive
+skewness and kurtosis) thanks to the injected outlier, and the outlier table
+flags it. `age` looks roughly symmetric.
+
+## The object is just a list
+
+Everything is accessible directly, which makes the profile easy to use
+programmatically:
+
+```{r structure}
+p$metadata$column_types
+p$diagnostics$quality$components
+head(p$statistics$numeric[, c("column", "mean", "sd", "skewness")])
+```
+
+## Figures
+
+The figures are built during `profile_data()` and retrieved with `plot()`.
+
+```{r missing-plot}
+plot(p, which = "missing")
+```
+
+```{r dist-plot}
+plot(p, which = "distribution", column = "income")
+```
+
+```{r corr-plot}
+plot(p, which = "correlation")
+```
+
+You can also call the plotting functions directly without a full profile, e.g.
+`plot_boxplots(df)` or `plot_pairs(df, c("age", "income"))`.
+
+## Tuning the run
+
+- `build_plots = FALSE` skips figure construction on very wide data.
+- `outlier_method` can be `"iqr"` (default), `"zscore"`, or `"robust"` (median/MAD).
+- `cor_method` accepts `"pearson"`, `"spearman"`, or both.
+- `normality = FALSE` skips the Shapiro-Wilk / Anderson-Darling tests.
+
+```{r tuning}
+p2 <- profile_data(df, build_plots = FALSE, outlier_method = "robust",
+                   cor_method = "spearman")
+p2$diagnostics$outliers$per_column
+```
