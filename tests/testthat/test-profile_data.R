@@ -68,6 +68,13 @@ test_that("v0.2 features are wired into the profile", {
   expect_s3_class(plot(p, which = "association"), "ggplot")
 })
 
+test_that("a zero-variance column does not discard the correlation plot", {
+  # cor() warns on a constant column; that warning must not null the figure.
+  df <- data.frame(a = 1:10, b = (1:10) * 2 + 1, constant = 1L)
+  p <- profile_data(df)
+  expect_s3_class(plot(p, which = "correlation"), "ggplot")
+})
+
 test_that("distributions = FALSE skips per-column distribution plots", {
   p <- profile_data(iris, distributions = FALSE)
   expect_length(p$plots$distributions, 0)

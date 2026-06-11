@@ -15,6 +15,7 @@ Description: Profiles a data frame with minimal input: column type inference,
     profile to a self-contained HTML file.
 License: MIT + file LICENSE
 Encoding: UTF-8
+Language: en-GB
 Depends:
     R (>= 4.1.0)
 Imports:
@@ -25,7 +26,8 @@ Suggests:
     testthat (>= 3.0.0),
     knitr,
     rmarkdown,
-    nortest
+    nortest,
+    spelling
 VignetteBuilder: knitr
 URL: https://github.com/mqfarooqi1/dataProfilerR
 BugReports: https://github.com/mqfarooqi1/dataProfilerR/issues

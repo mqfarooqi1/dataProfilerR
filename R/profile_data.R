@@ -86,8 +86,10 @@ profile_data <- function(df, dataset_name = NULL, build_plots = TRUE,
   plots <- list()
   if (isTRUE(build_plots)) {
     msg("Building plots ...")
-    safe <- function(expr) tryCatch(expr, error = function(e) NULL,
-                                     warning = function(w) NULL)
+    # Suppress warnings (e.g. cor() on a zero-variance column) but still drop a
+    # figure that genuinely errors. A warning should not discard a valid plot.
+    safe <- function(expr) tryCatch(suppressWarnings(expr),
+                                     error = function(e) NULL)
     plots$missing <- safe(plot_missing(df))
     plots$correlation <- safe(plot_correlation(df, method = cor_method[1]))
     plots$association <- safe(plot_association(df))

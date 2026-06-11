@@ -103,7 +103,7 @@ Design choices worth calling out:
 | `detect_outliers(x, method)` | `"iqr"`, `"zscore"`, or `"robust"` (median/MAD) on a vector. |
 | `outlier_summary(df, method)` | Per-column outlier counts and an overall rate. |
 | `correlation_analysis(df, method)` | Pearson and/or Spearman matrices over numeric columns. |
-| `categorical_association(df)` | Cramér's V matrix between categorical columns. |
+| `categorical_association(df)` | Cramer's V matrix between categorical columns. |
 | `analyze_dates(df)` | Range, unique count, and largest gap for date/datetime columns. |
 | `compare_groups(df, group)` | Numeric summaries within the levels of a grouping column. |
 | `skewness(x)`, `kurtosis(x)` | Moment-based, exported for direct use. |
@@ -115,7 +115,7 @@ Design choices worth calling out:
 | `plot_missing(df)` | Missing-value heatmap (rows subsampled when large). |
 | `plot_distribution(df, column)` | Histogram + density (numeric) or bar chart (categorical). |
 | `plot_correlation(df, method)` | Annotated correlation heatmap. |
-| `plot_association(df)` | Cramér's V heatmap for categorical columns. |
+| `plot_association(df)` | Cramer's V heatmap for categorical columns. |
 | `plot_boxplots(df)` | Faceted boxplots for the numeric columns. |
 | `plot_pairs(df, columns)` | Scatterplot matrix for selected numeric columns. |
 
@@ -153,7 +153,7 @@ dataProfilerR/
 │   ├── utils.R              # validation + skewness/kurtosis
 │   ├── profiling.R          # types, missingness, summaries, quality score
 │   ├── statistics.R         # normality, outliers, correlation
-│   ├── association.R        # Cramér's V for categoricals
+│   ├── association.R        # Cramer's V for categoricals
 │   ├── dates.R              # date/datetime profiling
 │   ├── groups.R             # grouped comparison
 │   ├── visualization.R      # ggplot2 functions
@@ -173,7 +173,7 @@ requests, and output-shape consistency. Run with `devtools::test()`.
 
 ## Limitations and future improvements
 
-Added in 0.2.0: `report()` (HTML), `categorical_association()` (Cramér's V),
+Added in 0.2.0: `report()` (HTML), `categorical_association()` (Cramer's V),
 `analyze_dates()`, `compare_groups()`, and a `distributions = FALSE` switch to
 avoid eager per-column plots on wide data. See `NEWS.md`.
 

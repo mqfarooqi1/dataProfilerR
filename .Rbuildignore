@@ -4,3 +4,4 @@
 ^\.Rproj\.user$
 ^.*\.Rproj$
 ^LICENSE\.md$
+^cran-comments\.md$

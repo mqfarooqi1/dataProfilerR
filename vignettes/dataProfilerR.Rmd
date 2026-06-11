@@ -108,7 +108,7 @@ p2$diagnostics$outliers$per_column
 
 ## Beyond correlation (0.2.0)
 
-Categorical columns get their own association matrix (Cramér's V):
+Categorical columns get their own association matrix (Cramer's V):
 
 ```{r association}
 p$statistics$association
