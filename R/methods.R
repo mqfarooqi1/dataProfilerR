@@ -102,9 +102,29 @@ summary.data_profile <- function(object, max_rows = 10, ...) {
     }
   }
 
+  if (!is.null(d$dates)) {
+    cat("-- date columns --\n")
+    print(utils::head(d$dates, max_rows), row.names = FALSE)
+    cat("\n")
+  }
+
+  if (!is.null(s$association)) {
+    cat("-- categorical association (Cramer's V) --\n")
+    print(round(s$association, 2))
+    cat("\n")
+  }
+
+  if (!is.null(d$groups)) {
+    cat(sprintf("-- numeric means by '%s' --\n", d$groups$group))
+    gm <- d$groups$numeric_by_group[, c("group", "column", "mean")]
+    print(utils::head(gm, max_rows), row.names = FALSE)
+    cat("\n")
+  }
+
   invisible(list(numeric = s$numeric, missing = worst,
                  normality = d$normality, outliers = d$outliers$per_column,
-                 correlations = top_cor))
+                 correlations = top_cor, association = s$association,
+                 dates = d$dates, groups = d$groups))
 }
 
 #' Plot a data profile
@@ -112,8 +132,8 @@ summary.data_profile <- function(object, max_rows = 10, ...) {
 #' Returns one of the figures built by [profile_data()].
 #'
 #' @param x A `data_profile` object (built with `build_plots = TRUE`).
-#' @param which Which figure: `"missing"`, `"correlation"`, `"boxplots"`,
-#'   `"pairs"`, or `"distribution"`.
+#' @param which Which figure: `"missing"`, `"correlation"`, `"association"`,
+#'   `"boxplots"`, `"pairs"`, or `"distribution"`.
 #' @param column Column name, required when `which = "distribution"`.
 #' @param ... Ignored.
 #' @return A \pkg{ggplot2} object (also drawn when called at the console).
@@ -125,7 +145,8 @@ summary.data_profile <- function(object, max_rows = 10, ...) {
 #' }
 #' @export
 plot.data_profile <- function(x, which = c("missing", "correlation",
-                                           "boxplots", "pairs", "distribution"),
+                                           "association", "boxplots", "pairs",
+                                           "distribution"),
                               column = NULL, ...) {
   which <- match.arg(which)
   if (length(x$plots) == 0L) {

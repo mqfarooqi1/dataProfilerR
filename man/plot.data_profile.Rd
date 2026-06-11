@@ -6,7 +6,7 @@
 \usage{
 \method{plot}{data_profile}(
   x,
-  which = c("missing", "correlation", "boxplots", "pairs", "distribution"),
+  which = c("missing", "correlation", "association", "boxplots", "pairs", "distribution"),
   column = NULL,
   ...
 )
@@ -14,8 +14,8 @@
 \arguments{
 \item{x}{A \code{data_profile} object (built with \code{build_plots = TRUE}).}
 
-\item{which}{Which figure: \code{"missing"}, \code{"correlation"}, \code{"boxplots"},
-\code{"pairs"}, or \code{"distribution"}.}
+\item{which}{Which figure: \code{"missing"}, \code{"correlation"}, \code{"association"},
+\code{"boxplots"}, \code{"pairs"}, or \code{"distribution"}.}
 
 \item{column}{Column name, required when \code{which = "distribution"}.}
 

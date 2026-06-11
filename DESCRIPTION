@@ -1,16 +1,18 @@
 Package: dataProfilerR
 Title: Automated Exploratory Data Analysis and Dataset Profiling
-Version: 0.1.0
+Version: 0.2.0
 Authors@R:
     person("Muhammad", "Farooqi", email = "mqfarooqi@gmail.com",
            role = c("aut", "cre"))
 Description: Profiles a data frame with minimal input: column type inference,
     missing-value analysis, distributional summary statistics (including
-    skewness and kurtosis), normality tests, outlier detection, correlation
-    analysis and an overall data-quality score, alongside a set of 'ggplot2'
+    skewness and kurtosis), normality tests, outlier detection, correlation and
+    categorical-association analysis, date-column profiling, grouped comparisons
+    and an overall data-quality score, alongside a set of 'ggplot2'
     visualisations. A single entry point, profile_data(), returns a structured
     S3 object holding metadata, statistics, diagnostics and plots, with
-    print(), summary() and plot() methods.
+    print(), summary() and plot() methods, and report() renders the whole
+    profile to a self-contained HTML file.
 License: MIT + file LICENSE
 Encoding: UTF-8
 Depends:

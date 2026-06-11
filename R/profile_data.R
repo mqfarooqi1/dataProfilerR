@@ -12,10 +12,17 @@
 #'   deparsed name of `df`.
 #' @param build_plots Whether to build the \pkg{ggplot2} objects. Set `FALSE` to
 #'   skip plotting on very wide data. Default `TRUE`.
+#' @param distributions Whether to build a per-column distribution plot (the
+#'   eager, heaviest part of plotting). Set `FALSE` on wide data and use
+#'   [plot_distribution()] on demand. Ignored if `build_plots = FALSE`.
+#'   Default `TRUE`.
 #' @param normality Whether to run normality tests. Default `TRUE`.
 #' @param outlier_method Method passed to [outlier_summary()]: `"iqr"`,
 #'   `"zscore"` or `"robust"`. Default `"iqr"`.
 #' @param cor_method Correlation methods: any of `"pearson"`, `"spearman"`.
+#' @param group_by Optional name of a categorical column. If supplied, a grouped
+#'   comparison of the numeric columns is added to the diagnostics (see
+#'   [compare_groups()]).
 #' @param verbose Print progress messages. Default `FALSE`.
 #' @return An object of class `data_profile`: a list with elements `metadata`,
 #'   `statistics`, `diagnostics`, `plots` and `call`.
@@ -30,9 +37,10 @@
 #' }
 #' @export
 profile_data <- function(df, dataset_name = NULL, build_plots = TRUE,
-                         normality = TRUE, outlier_method = "iqr",
+                         distributions = TRUE, normality = TRUE,
+                         outlier_method = "iqr",
                          cor_method = c("pearson", "spearman"),
-                         verbose = FALSE) {
+                         group_by = NULL, verbose = FALSE) {
   .validate_df(df)
   if (is.null(dataset_name)) dataset_name <- deparse(substitute(df))[1]
   msg <- function(...) if (isTRUE(verbose)) message(...)
@@ -58,6 +66,18 @@ profile_data <- function(df, dataset_name = NULL, build_plots = TRUE,
   msg("Computing correlations ...")
   cors <- correlation_analysis(df, types, method = cor_method)
 
+  msg("Measuring categorical association ...")
+  assoc <- categorical_association(df, types)
+
+  msg("Profiling date columns ...")
+  dates <- analyze_dates(df, types)
+
+  groups <- NULL
+  if (!is.null(group_by)) {
+    msg("Comparing groups ...")
+    groups <- compare_groups(df, group_by)
+  }
+
   msg("Scoring data quality ...")
   quality <- data_quality_score(
     df, missing = missing,
@@ -70,10 +90,16 @@ profile_data <- function(df, dataset_name = NULL, build_plots = TRUE,
                                      warning = function(w) NULL)
     plots$missing <- safe(plot_missing(df))
     plots$correlation <- safe(plot_correlation(df, method = cor_method[1]))
+    plots$association <- safe(plot_association(df))
     plots$boxplots <- safe(plot_boxplots(df))
     plots$pairs <- safe(plot_pairs(df))
-    plots$distributions <- stats::setNames(
-      lapply(names(df), function(nm) safe(plot_distribution(df, nm))), names(df))
+    if (isTRUE(distributions)) {
+      plots$distributions <- stats::setNames(
+        lapply(names(df), function(nm) safe(plot_distribution(df, nm))),
+        names(df))
+    } else {
+      plots$distributions <- list()
+    }
   }
 
   structure(
@@ -88,12 +114,15 @@ profile_data <- function(df, dataset_name = NULL, build_plots = TRUE,
       statistics = list(
         numeric = stats$numeric,
         categorical = stats$categorical,
-        correlations = cors
+        correlations = cors,
+        association = assoc
       ),
       diagnostics = list(
         missing = missing,
         normality = norm,
         outliers = outliers,
+        dates = dates,
+        groups = groups,
         quality = quality
       ),
       plots = plots,

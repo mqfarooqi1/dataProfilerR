@@ -51,3 +51,27 @@ test_that("profile_data validates its input", {
   expect_error(profile_data(NULL), "data frame")
   expect_error(profile_data(data.frame()), "no columns")
 })
+
+test_that("v0.2 features are wired into the profile", {
+  df <- data.frame(
+    val  = c(1, 2, 3, 4, 5, 6),
+    grp  = c("a", "a", "b", "b", "a", "b"),
+    col2 = c("x", "x", "y", "y", "x", "y"),
+    d    = as.Date("2026-01-01") + 0:5,
+    stringsAsFactors = FALSE
+  )
+  p <- suppressWarnings(profile_data(df, group_by = "grp"))
+  expect_false(is.null(p$statistics$association))     # grp + col2 = 2 categoricals
+  expect_false(is.null(p$diagnostics$dates))          # d is a date column
+  expect_false(is.null(p$diagnostics$groups))         # group_by = "grp"
+  expect_identical(p$diagnostics$groups$group, "grp")
+  expect_s3_class(plot(p, which = "association"), "ggplot")
+})
+
+test_that("distributions = FALSE skips per-column distribution plots", {
+  p <- profile_data(iris, distributions = FALSE)
+  expect_length(p$plots$distributions, 0)
+  expect_true(!is.null(p$plots$missing))              # core plots still built
+  expect_error(plot(p, which = "distribution", column = "Sepal.Length"),
+               "No distribution plot")
+})

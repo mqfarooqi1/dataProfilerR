@@ -8,9 +8,11 @@ profile_data(
   df,
   dataset_name = NULL,
   build_plots = TRUE,
+  distributions = TRUE,
   normality = TRUE,
   outlier_method = "iqr",
   cor_method = c("pearson", "spearman"),
+  group_by = NULL,
   verbose = FALSE
 )
 }
@@ -24,12 +26,21 @@ deparsed name of \code{df}.}
 \item{build_plots}{Whether to build the \pkg{ggplot2} objects. Set \code{FALSE} to
 skip plotting on very wide data. Default \code{TRUE}.}
 
+\item{distributions}{Whether to build a per-column distribution plot (the
+eager, heaviest part of plotting). Set \code{FALSE} on wide data and use
+\code{\link[=plot_distribution]{plot_distribution()}} on demand. Ignored if \code{build_plots = FALSE}.
+Default \code{TRUE}.}
+
 \item{normality}{Whether to run normality tests. Default \code{TRUE}.}
 
 \item{outlier_method}{Method passed to \code{\link[=outlier_summary]{outlier_summary()}}: \code{"iqr"},
 \code{"zscore"} or \code{"robust"}. Default \code{"iqr"}.}
 
 \item{cor_method}{Correlation methods: any of \code{"pearson"}, \code{"spearman"}.}
+
+\item{group_by}{Optional name of a categorical column. If supplied, a grouped
+comparison of the numeric columns is added to the diagnostics (see
+\code{\link[=compare_groups]{compare_groups()}}).}
 
 \item{verbose}{Print progress messages. Default \code{FALSE}.}
 }

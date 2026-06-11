@@ -105,3 +105,34 @@ p2 <- profile_data(df, build_plots = FALSE, outlier_method = "robust",
                    cor_method = "spearman")
 p2$diagnostics$outliers$per_column
 ```
+
+## Beyond correlation (0.2.0)
+
+Categorical columns get their own association matrix (Cramér's V):
+
+```{r association}
+p$statistics$association
+plot(p, which = "association")
+```
+
+Date columns are profiled for range and gaps:
+
+```{r dates}
+p$diagnostics$dates
+```
+
+And you can compare the numeric columns across the levels of a factor:
+
+```{r groups}
+pg <- profile_data(df, group_by = "plan")
+head(pg$diagnostics$groups$numeric_by_group, 8)
+```
+
+## A full HTML report
+
+`report()` renders everything above -- tables and figures -- into one
+self-contained HTML file. It needs pandoc (the usual R Markdown dependency).
+
+```{r report, eval=FALSE}
+report(p, "customers_report.html")
+```
