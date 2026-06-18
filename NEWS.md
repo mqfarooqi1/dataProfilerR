@@ -1,3 +1,13 @@
+# dataProfilerR 0.2.1
+
+Changes requested during the initial CRAN review:
+
+* Added method references (Shapiro-Wilk, Anderson-Darling, Cramer's V) to the
+  Description field.
+* `normality_tests()` no longer touches the global random-number state. Large
+  columns are now reduced with a deterministic, evenly-spaced subsample instead
+  of `set.seed()` + `sample()`; the `seed` argument has been removed.
+
 # dataProfilerR 0.2.0
 
 New analysis and reporting:

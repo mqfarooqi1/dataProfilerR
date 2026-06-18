@@ -4,7 +4,7 @@
 \alias{normality_tests}
 \title{Normality tests for numeric columns}
 \usage{
-normality_tests(df, types = NULL, alpha = 0.05, seed = 1)
+normality_tests(df, types = NULL, alpha = 0.05)
 }
 \arguments{
 \item{df}{A data frame.}
@@ -12,8 +12,6 @@ normality_tests(df, types = NULL, alpha = 0.05, seed = 1)
 \item{types}{Optional named character vector of column types.}
 
 \item{alpha}{Significance level for the \code{normal} verdict. Default 0.05.}
-
-\item{seed}{Seed used when subsampling large columns. Default 1.}
 }
 \value{
 A data frame with one row per numeric column: \code{column}, \code{n_used},
@@ -25,7 +23,8 @@ are \code{NA} if \pkg{nortest} is absent), and a logical \code{normal}. Returns
 Runs the Shapiro-Wilk test on each numeric/integer column, and the
 Anderson-Darling test as well if the suggested \pkg{nortest} package is
 installed. Shapiro-Wilk requires 3 to 5000 observations; larger columns are
-randomly subsampled to 5000 (reproducibly, via \code{seed}).
+reduced to an evenly-spaced subsample of 5000. The subsample is deterministic
+and does not touch the session's random-number state.
 }
 \examples{
 normality_tests(iris)

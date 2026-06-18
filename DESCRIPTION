@@ -1,6 +1,6 @@
 Package: dataProfilerR
 Title: Automated Exploratory Data Analysis and Dataset Profiling
-Version: 0.2.0
+Version: 0.2.1
 Authors@R:
     person("Muhammad", "Farooqi", email = "mqfarooqi@gmail.com",
            role = c("aut", "cre"))
@@ -12,7 +12,10 @@ Description: Profiles a data frame with minimal input: column type inference,
     visualisations. A single entry point, profile_data(), returns a structured
     S3 object holding metadata, statistics, diagnostics and plots, with
     print(), summary() and plot() methods, and report() renders the whole
-    profile to a self-contained HTML file.
+    profile to a self-contained HTML file. Statistical methods include the
+    normality tests of Shapiro and Wilk (1965) <doi:10.1093/biomet/52.3-4.591>
+    and Anderson and Darling (1952) <doi:10.1214/aoms/1177729437>, and the
+    categorical association measure of Cramer (1946, ISBN:9780691080048).
 License: MIT + file LICENSE
 Encoding: UTF-8
 Language: en-GB

@@ -3,12 +3,12 @@
 #' Runs the Shapiro-Wilk test on each numeric/integer column, and the
 #' Anderson-Darling test as well if the suggested \pkg{nortest} package is
 #' installed. Shapiro-Wilk requires 3 to 5000 observations; larger columns are
-#' randomly subsampled to 5000 (reproducibly, via `seed`).
+#' reduced to an evenly-spaced subsample of 5000. The subsample is deterministic
+#' and does not touch the session's random-number state.
 #'
 #' @param df A data frame.
 #' @param types Optional named character vector of column types.
 #' @param alpha Significance level for the `normal` verdict. Default 0.05.
-#' @param seed Seed used when subsampling large columns. Default 1.
 #' @return A data frame with one row per numeric column: `column`, `n_used`,
 #'   `shapiro_W`, `shapiro_p`, `ad_A` and `ad_p` (the Anderson-Darling columns
 #'   are `NA` if \pkg{nortest} is absent), and a logical `normal`. Returns
@@ -16,7 +16,7 @@
 #' @examples
 #' normality_tests(iris)
 #' @export
-normality_tests <- function(df, types = NULL, alpha = 0.05, seed = 1) {
+normality_tests <- function(df, types = NULL, alpha = 0.05) {
   .validate_df(df)
   if (is.null(types)) types <- infer_column_types(df)
   num_cols <- names(types)[types %in% c("numeric", "integer")]
@@ -30,9 +30,10 @@ normality_tests <- function(df, types = NULL, alpha = 0.05, seed = 1) {
     if (n >= 3L && stats::sd(x) > 0) {
       xs <- x
       if (n > 5000L) {
-        old <- .Random.seed_safe(seed)
-        on.exit(.restore_seed(old), add = TRUE)
-        xs <- sample(x, 5000L)
+        # Deterministic, evenly-spaced subsample (Shapiro-Wilk caps at 5000).
+        # Done without random sampling so the function never alters the
+        # session's random-number generator state.
+        xs <- x[round(seq.int(1L, n, length.out = 5000L))]
       }
       sw <- tryCatch(stats::shapiro.test(xs), error = function(e) NULL)
       if (!is.null(sw)) { sw_W <- unname(sw$statistic); sw_p <- sw$p.value }
@@ -50,28 +51,6 @@ normality_tests <- function(df, types = NULL, alpha = 0.05, seed = 1) {
   out <- do.call(rbind, rows)
   rownames(out) <- NULL
   out
-}
-
-#' @keywords internal
-#' @noRd
-.Random.seed_safe <- function(seed) {
-  old <- if (exists(".Random.seed", envir = .GlobalEnv)) {
-    get(".Random.seed", envir = .GlobalEnv)
-  } else NULL
-  set.seed(seed)
-  old
-}
-
-#' @keywords internal
-#' @noRd
-.restore_seed <- function(old) {
-  if (is.null(old)) {
-    if (exists(".Random.seed", envir = .GlobalEnv)) {
-      rm(".Random.seed", envir = .GlobalEnv)
-    }
-  } else {
-    assign(".Random.seed", old, envir = .GlobalEnv)
-  }
 }
 
 #' Detect outliers in a numeric vector
