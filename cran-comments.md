@@ -8,7 +8,9 @@ initial CRAN review:
   algorithms actually used: Royston (1995) <doi:10.2307/2986146> for the
   Shapiro-Wilk test (R's implementation), Stephens (1974)
   <doi:10.1080/01621459.1974.10480196> for the Anderson-Darling EDF statistic,
-  and Cramer (1946, ISBN:9780691080048) for the categorical association measure.
+  Yap and Sim (2011) <doi:10.1080/00949655.2010.520163> for power comparisons of
+  these normality tests, and Cramer (1946, ISBN:9780691080048) for the
+  categorical association measure.
 * Removed all modification of `.GlobalEnv`. `normality_tests()` previously saved,
   set, and restored `.Random.seed` to subsample large columns; it now uses a
   deterministic, evenly-spaced subsample and does not call `set.seed()` or touch

@@ -14,9 +14,10 @@ Description: Profiles a data frame with minimal input: column type inference,
     print(), summary() and plot() methods, and report() renders the whole
     profile to a self-contained HTML file. Statistical methods include the
     Shapiro-Wilk normality test as implemented by Royston (1995)
-    <doi:10.2307/2986146>, the Anderson-Darling test following Stephens (1974)
-    <doi:10.1080/01621459.1974.10480196>, and the categorical association
-    measure of Cramer (1946, ISBN:9780691080048).
+    <doi:10.2307/2986146> and the Anderson-Darling test following Stephens
+    (1974) <doi:10.1080/01621459.1974.10480196>, with power comparisons of these
+    tests in Yap and Sim (2011) <doi:10.1080/00949655.2010.520163>, and the
+    categorical association measure of Cramer (1946, ISBN:9780691080048).
 License: MIT + file LICENSE
 Encoding: UTF-8
 Language: en-GB
