@@ -4,9 +4,11 @@ This is a resubmission (version 0.2.1) addressing the two points raised in the
 initial CRAN review:
 
 * Added references for the statistical methods to the Description field, in the
-  requested `authors (year) <doi:...>` / `(year, ISBN:...)` form:
-  Shapiro and Wilk (1965) <doi:10.1093/biomet/52.3-4.591>, Anderson and Darling
-  (1952) <doi:10.1214/aoms/1177729437>, and Cramer (1946, ISBN:9780691080048).
+  requested `authors (year) <doi:...>` / `(year, ISBN:...)` form. These cite the
+  algorithms actually used: Royston (1995) <doi:10.2307/2986146> for the
+  Shapiro-Wilk test (R's implementation), Stephens (1974)
+  <doi:10.1080/01621459.1974.10480196> for the Anderson-Darling EDF statistic,
+  and Cramer (1946, ISBN:9780691080048) for the categorical association measure.
 * Removed all modification of `.GlobalEnv`. `normality_tests()` previously saved,
   set, and restored `.Random.seed` to subsample large columns; it now uses a
   deterministic, evenly-spaced subsample and does not call `set.seed()` or touch
