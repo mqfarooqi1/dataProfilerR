@@ -1,0 +1,9 @@
+pandoc: 3.8.3
+pkgdown: 2.2.0
+pkgdown_sha: ~
+articles:
+  dataProfilerR: dataProfilerR.html
+last_built: 2026-06-25T05:55Z
+urls:
+  reference: https://mqfarooqi1.github.io/dataProfilerR/reference
+  article: https://mqfarooqi1.github.io/dataProfilerR/articles
