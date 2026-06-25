@@ -5,7 +5,7 @@ rmarkdown, so a working pandoc installation is required (R Markdown's
 usual dependency); report() errors clearly if pandoc is unavailable."><meta property="og:description" content="Turns a data_profile into a standalone HTML file containing the metadata,
 quality score, statistical tables and every figure. The report is built with
 rmarkdown, so a working pandoc installation is required (R Markdown's
-usual dependency); report() errors clearly if pandoc is unavailable."></head><body>
+usual dependency); report() errors clearly if pandoc is unavailable."><meta property="og:image" content="https://mqfarooqi1.github.io/dataProfilerR/logo.svg"></head><body>
     <a href="#main" class="visually-hidden-focusable">Skip to contents</a>
 
 
@@ -40,8 +40,7 @@ usual dependency); report() errors clearly if pandoc is unavailable."></head><bo
 </nav><div class="container template-reference-topic">
 <div class="row">
   <main id="main" class="col-md-9"><div class="page-header">
-
-      <h1>Render a profile to a self-contained HTML report</h1>
+      <img src="../logo.svg" class="logo" alt=""><h1>Render a profile to a self-contained HTML report</h1>
       <small class="dont-index">Source: <a href="https://github.com/mqfarooqi1/dataProfilerR/blob/main/R/report.R" class="external-link"><code>R/report.R</code></a></small>
       <div class="d-none name"><code>report.Rd</code></div>
     </div>
@@ -97,7 +96,7 @@ directory. Default <code>"dataProfilerR_report.html"</code>.</p></dd>
 <span class="r-in"><span>  <span class="va">p</span> <span class="op">&lt;-</span> <span class="fu"><a href="profile_data.html">profile_data</a></span><span class="op">(</span><span class="va">iris</span><span class="op">)</span></span></span>
 <span class="r-in"><span>  <span class="va">f</span> <span class="op">&lt;-</span> <span class="fu">report</span><span class="op">(</span><span class="va">p</span>, <span class="fu"><a href="https://rdrr.io/r/base/file.path.html" class="external-link">file.path</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/tempfile.html" class="external-link">tempdir</a></span><span class="op">(</span><span class="op">)</span>, <span class="st">"iris_report.html"</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="op">}</span></span></span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Report written to /tmp/Rtmpj9rurA/iris_report.html</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Report written to /tmp/RtmpskboCR/iris_report.html</span>
 <span class="r-in"><span><span class="co"># }</span></span></span>
 </code></pre></div>
     </div>

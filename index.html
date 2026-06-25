@@ -15,6 +15,7 @@
 <script src="deps/headroom-0.11.0/headroom.min.js"></script><script src="deps/headroom-0.11.0/jQuery.headroom.min.js"></script><script src="deps/bootstrap-toc-1.0.1/bootstrap-toc.min.js"></script><script src="deps/clipboard.js-2.0.11/clipboard.min.js"></script><script src="deps/search-1.0.0/autocomplete.jquery.min.js"></script><script src="deps/search-1.0.0/fuse.min.js"></script><script src="deps/search-1.0.0/mark.min.js"></script><!-- pkgdown --><script src="pkgdown.js"></script><meta property="og:title" content="Automated Exploratory Data Analysis and Dataset Profiling">
 <meta name="description" content="Profiles a data frame with minimal input: column type inference, missing-value analysis, distributional summary statistics (including skewness and kurtosis), normality tests, outlier detection, correlation and categorical-association analysis, date-column profiling, grouped comparisons and an overall data-quality score, alongside a set of ggplot2 visualisations. A single entry point, profile_data(), returns a structured S3 object holding metadata, statistics, diagnostics and plots, with print(), summary() and plot() methods, and report() renders the whole profile to a self-contained HTML file. Statistical methods include the Shapiro-Wilk normality test as implemented by Royston (1995) &lt;doi:10.2307/2986146&gt; and the Anderson-Darling test following Stephens (1974) &lt;doi:10.1080/01621459.1974.10480196&gt;, with power comparisons of these tests in Yap and Sim (2011) &lt;doi:10.1080/00949655.2010.520163&gt;, and the categorical association measure of Cramer (1946, ISBN:9780691080048).">
 <meta property="og:description" content="Profiles a data frame with minimal input: column type inference, missing-value analysis, distributional summary statistics (including skewness and kurtosis), normality tests, outlier detection, correlation and categorical-association analysis, date-column profiling, grouped comparisons and an overall data-quality score, alongside a set of ggplot2 visualisations. A single entry point, profile_data(), returns a structured S3 object holding metadata, statistics, diagnostics and plots, with print(), summary() and plot() methods, and report() renders the whole profile to a self-contained HTML file. Statistical methods include the Shapiro-Wilk normality test as implemented by Royston (1995) &lt;doi:10.2307/2986146&gt; and the Anderson-Darling test following Stephens (1974) &lt;doi:10.1080/01621459.1974.10480196&gt;, with power comparisons of these tests in Yap and Sim (2011) &lt;doi:10.1080/00949655.2010.520163&gt;, and the categorical association measure of Cramer (1946, ISBN:9780691080048).">
+<meta property="og:image" content="https://mqfarooqi1.github.io/dataProfilerR/logo.svg">
 </head>
 <body>
     <a href="#main" class="visually-hidden-focusable">Skip to contents</a>
@@ -58,8 +59,11 @@
 </nav><div class="container template-home">
 <div class="row">
   <main id="main" class="col-md-9"><div class="section level1">
-<div class="page-header"><h1 id="dataprofilerr">dataProfilerR<a class="anchor" aria-label="anchor" href="#dataprofilerr"></a>
-</h1></div>
+<div class="page-header">
+<img src="logo.svg" class="logo" alt=""><h1 id="dataprofilerr-">dataProfilerR 
+<a class="anchor" aria-label="anchor" href="#dataprofilerr-"></a>
+</h1>
+</div>
 <!-- badges: start -->
 
 <p>Automated exploratory data analysis for R. Point it at a data frame and it returns a structured profile — column types, missingness, distributional statistics, normality tests, outliers, correlations, a data-quality score, and <code>ggplot2</code> figures — through a single function, <code><a href="reference/profile_data.html">profile_data()</a></code>.</p>
