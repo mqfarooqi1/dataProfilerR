@@ -2,3 +2,56 @@ url: https://mqfarooqi1.github.io/dataProfilerR/
 
 template:
   bootstrap: 5
+  light-switch: true
+  bslib:
+    primary: "#2c7fb8"
+    border-radius: 0.5rem
+    base_font: {google: "Inter"}
+    heading_font: {google: "Inter"}
+    code_font: {google: "Source Code Pro"}
+
+navbar:
+  structure:
+    left:  [intro, reference, articles, news]
+    right: [search, lightswitch, github]
+
+reference:
+- title: "Main pipeline"
+  desc: >
+    The single entry point and the profile object it returns.
+  contents:
+  - profile_data
+  - is_data_profile
+  - report
+- title: "Methods for a profile"
+  desc: "S3 methods on the data_profile object."
+  contents:
+  - print.data_profile
+  - summary.data_profile
+  - plot.data_profile
+- title: "Profiling engine"
+  desc: "Column types, missingness, summary statistics, data-quality score."
+  contents:
+  - infer_column_types
+  - analyze_missing
+  - summarize_columns
+  - data_quality_score
+  - skewness
+  - kurtosis
+- title: "Statistical analysis"
+  desc: "Normality, outliers, correlation, categorical association, dates, groups."
+  contents:
+  - normality_tests
+  - detect_outliers
+  - outlier_summary
+  - correlation_analysis
+  - categorical_association
+  - analyze_dates
+  - compare_groups
+- title: "Visualisation"
+  desc: "ggplot2 figures for each part of the profile."
+  contents:
+  - starts_with("plot_")
+- title: "Package"
+  contents:
+  - dataProfilerR-package
