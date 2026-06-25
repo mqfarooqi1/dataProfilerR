@@ -1,4 +1,4 @@
-# dataProfilerR
+# dataProfilerR <a href="https://mqfarooqi1.github.io/dataProfilerR/"><img src="man/figures/logo.svg" align="right" height="138" alt="dataProfilerR logo" /></a>
 
 <!-- badges: start -->
 [![CRAN status](https://www.r-pkg.org/badges/version/dataProfilerR)](https://CRAN.R-project.org/package=dataProfilerR)
