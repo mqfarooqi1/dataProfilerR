@@ -1,5 +1,12 @@
 # dataProfilerR
 
+<!-- badges: start -->
+[![CRAN status](https://www.r-pkg.org/badges/version/dataProfilerR)](https://CRAN.R-project.org/package=dataProfilerR)
+[![CRAN downloads](https://cranlogs.r-pkg.org/badges/grand-total/dataProfilerR)](https://CRAN.R-project.org/package=dataProfilerR)
+[![R-universe](https://mqfarooqi1.r-universe.dev/badges/dataProfilerR)](https://mqfarooqi1.r-universe.dev/dataProfilerR)
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
+<!-- badges: end -->
+
 Automated exploratory data analysis for R. Point it at a data frame and it
 returns a structured profile — column types, missingness, distributional
 statistics, normality tests, outliers, correlations, a data-quality score, and
