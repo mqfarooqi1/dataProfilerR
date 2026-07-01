@@ -71,8 +71,16 @@
 <div class="section level2">
 <h2 id="installation">Installation<a class="anchor" aria-label="anchor" href="#installation"></a>
 </h2>
+<p>dataProfilerR is on <a href="https://CRAN.R-project.org/package=dataProfilerR" class="external-link">CRAN</a>:</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="co"># install.packages("remotes")</span></span>
+<code class="sourceCode R"><span><span class="co"># from CRAN (recommended)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html" class="external-link">install.packages</a></span><span class="op">(</span><span class="st">"dataProfilerR"</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># or from R-universe</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html" class="external-link">install.packages</a></span><span class="op">(</span><span class="st">"dataProfilerR"</span>, repos <span class="op">=</span> <span class="st">"https://mqfarooqi1.r-universe.dev"</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># or the development version from GitHub</span></span>
+<span><span class="co"># install.packages("remotes")</span></span>
 <span><span class="fu">remotes</span><span class="fu">::</span><span class="fu">install_github</span><span class="op">(</span><span class="st">"mqfarooqi1/dataProfilerR"</span><span class="op">)</span></span></code></pre></div>
 <p>Depends on <code>ggplot2</code>. The Anderson–Darling normality test additionally uses the suggested <code>nortest</code> package; if it isn’t installed, only Shapiro–Wilk is run.</p>
 </div>

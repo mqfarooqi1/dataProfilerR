@@ -12,8 +12,18 @@ inspectable object you can build on.
 
 ## Installation
 
+dataProfilerR is on
+[CRAN](https://CRAN.R-project.org/package=dataProfilerR):
+
 ``` r
 
+# from CRAN (recommended)
+install.packages("dataProfilerR")
+
+# or from R-universe
+install.packages("dataProfilerR", repos = "https://mqfarooqi1.r-universe.dev")
+
+# or the development version from GitHub
 # install.packages("remotes")
 remotes::install_github("mqfarooqi1/dataProfilerR")
 ```
