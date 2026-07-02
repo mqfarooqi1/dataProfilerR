@@ -48,6 +48,11 @@ reference:
   - categorical_association
   - analyze_dates
   - compare_groups
+- title: "Target analysis & drift"
+  desc: "Feature-target association ranking and dataset drift detection."
+  contents:
+  - analyze_target
+  - compare_datasets
 - title: "Visualisation"
   desc: "ggplot2 figures for each part of the profile."
   contents:
