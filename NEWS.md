@@ -1,6 +1,6 @@
-# dataProfilerR 0.3.0
+# dataProfilerR (development version)
 
-New features:
+Planned for the next release (0.3.0):
 
 * `analyze_target()` ranks every feature by its association with a chosen target
   column, adapting the measure to the variable types (absolute Pearson
