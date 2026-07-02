@@ -1,8 +1,8 @@
 # Changelog
 
-## dataProfilerR 0.3.0
+## dataProfilerR (development version)
 
-New features:
+Planned for the next release (0.3.0):
 
 - [`analyze_target()`](https://mqfarooqi1.github.io/dataProfilerR/reference/analyze_target.md)
   ranks every feature by its association with a chosen target column,
