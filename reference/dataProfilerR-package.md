@@ -24,6 +24,8 @@ Useful links:
 
 - <https://github.com/mqfarooqi1/dataProfilerR>
 
+- <https://mqfarooqi1.github.io/dataProfilerR/>
+
 - Report bugs at <https://github.com/mqfarooqi1/dataProfilerR/issues>
 
 ## Author

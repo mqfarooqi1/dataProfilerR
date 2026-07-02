@@ -23,5 +23,5 @@ non-missing values or the variance is zero.
 
 ``` r
 kurtosis(rnorm(100))
-#> [1] 0.3081869
+#> [1] -0.1010942
 ```

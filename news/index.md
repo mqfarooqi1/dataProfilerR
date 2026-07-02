@@ -1,5 +1,24 @@
 # Changelog
 
+## dataProfilerR 0.3.0
+
+New features:
+
+- [`analyze_target()`](https://mqfarooqi1.github.io/dataProfilerR/reference/analyze_target.md)
+  ranks every feature by its association with a chosen target column,
+  adapting the measure to the variable types (absolute Pearson
+  correlation, the correlation ratio eta, or Cramer’s V) so numeric and
+  categorical predictors are comparable on a common 0-1 scale.
+  [`plot_target()`](https://mqfarooqi1.github.io/dataProfilerR/reference/plot_target.md)
+  visualises the ranking.
+- [`compare_datasets()`](https://mqfarooqi1.github.io/dataProfilerR/reference/compare_datasets.md)
+  detects distribution drift between two data frames (e.g. train vs
+  test), reporting the population stability index (PSI) plus a
+  Kolmogorov-Smirnov (numeric) or chi-squared (categorical) test per
+  column.
+  [`plot_drift()`](https://mqfarooqi1.github.io/dataProfilerR/reference/plot_drift.md)
+  charts the per-column PSI.
+
 ## dataProfilerR 0.2.1
 
 CRAN release: 2026-06-24

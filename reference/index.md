@@ -59,6 +59,15 @@ groups.
 - [`compare_groups()`](https://mqfarooqi1.github.io/dataProfilerR/reference/compare_groups.md)
   : Compare numeric columns across groups
 
+## Target analysis & drift
+
+Feature-target association ranking and dataset drift detection.
+
+- [`analyze_target()`](https://mqfarooqi1.github.io/dataProfilerR/reference/analyze_target.md)
+  : Rank features by their association with a target variable
+- [`compare_datasets()`](https://mqfarooqi1.github.io/dataProfilerR/reference/compare_datasets.md)
+  : Detect distribution drift between two datasets
+
 ## Visualisation
 
 ggplot2 figures for each part of the profile.
@@ -71,10 +80,14 @@ ggplot2 figures for each part of the profile.
   : Correlation heatmap
 - [`plot_distribution()`](https://mqfarooqi1.github.io/dataProfilerR/reference/plot_distribution.md)
   : Distribution plot for a single column
+- [`plot_drift()`](https://mqfarooqi1.github.io/dataProfilerR/reference/plot_drift.md)
+  : Bar chart of per-column drift
 - [`plot_missing()`](https://mqfarooqi1.github.io/dataProfilerR/reference/plot_missing.md)
   : Missing-value heatmap
 - [`plot_pairs()`](https://mqfarooqi1.github.io/dataProfilerR/reference/plot_pairs.md)
   : Pairwise scatterplot matrix
+- [`plot_target()`](https://mqfarooqi1.github.io/dataProfilerR/reference/plot_target.md)
+  : Bar chart of feature-target association
 
 ## Package
 

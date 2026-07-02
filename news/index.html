@@ -7,7 +7,7 @@
 
     <a class="navbar-brand me-2" href="../index.html">dataProfilerR</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.2.1</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.3.0</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -38,6 +38,14 @@
       <small>Source: <a href="https://github.com/mqfarooqi1/dataProfilerR/blob/main/NEWS.md" class="external-link"><code>NEWS.md</code></a></small>
     </div>
 
+    <div class="section level2">
+<h2 class="pkg-version" data-toc-text="0.3.0" id="dataprofilerr-030">dataProfilerR 0.3.0<a class="anchor" aria-label="anchor" href="#dataprofilerr-030"></a></h2>
+<p>New features:</p>
+<ul><li>
+<code><a href="../reference/analyze_target.html">analyze_target()</a></code> ranks every feature by its association with a chosen target column, adapting the measure to the variable types (absolute Pearson correlation, the correlation ratio eta, or Cramer’s V) so numeric and categorical predictors are comparable on a common 0-1 scale. <code><a href="../reference/plot_target.html">plot_target()</a></code> visualises the ranking.</li>
+<li>
+<code><a href="../reference/compare_datasets.html">compare_datasets()</a></code> detects distribution drift between two data frames (e.g. train vs test), reporting the population stability index (PSI) plus a Kolmogorov-Smirnov (numeric) or chi-squared (categorical) test per column. <code><a href="../reference/plot_drift.html">plot_drift()</a></code> charts the per-column PSI.</li>
+</ul></div>
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="0.2.1" id="dataprofilerr-021">dataProfilerR 0.2.1<a class="anchor" aria-label="anchor" href="#dataprofilerr-021"></a></h2><p class="text-muted">CRAN release: 2026-06-24</p>
 <p>Changes requested during the initial CRAN review:</p>

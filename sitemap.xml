@@ -8,7 +8,9 @@
 <url><loc>https://mqfarooqi1.github.io/dataProfilerR/news/index.html</loc></url>
 <url><loc>https://mqfarooqi1.github.io/dataProfilerR/reference/analyze_dates.html</loc></url>
 <url><loc>https://mqfarooqi1.github.io/dataProfilerR/reference/analyze_missing.html</loc></url>
+<url><loc>https://mqfarooqi1.github.io/dataProfilerR/reference/analyze_target.html</loc></url>
 <url><loc>https://mqfarooqi1.github.io/dataProfilerR/reference/categorical_association.html</loc></url>
+<url><loc>https://mqfarooqi1.github.io/dataProfilerR/reference/compare_datasets.html</loc></url>
 <url><loc>https://mqfarooqi1.github.io/dataProfilerR/reference/compare_groups.html</loc></url>
 <url><loc>https://mqfarooqi1.github.io/dataProfilerR/reference/correlation_analysis.html</loc></url>
 <url><loc>https://mqfarooqi1.github.io/dataProfilerR/reference/dataProfilerR-package.html</loc></url>
@@ -25,8 +27,10 @@
 <url><loc>https://mqfarooqi1.github.io/dataProfilerR/reference/plot_boxplots.html</loc></url>
 <url><loc>https://mqfarooqi1.github.io/dataProfilerR/reference/plot_correlation.html</loc></url>
 <url><loc>https://mqfarooqi1.github.io/dataProfilerR/reference/plot_distribution.html</loc></url>
+<url><loc>https://mqfarooqi1.github.io/dataProfilerR/reference/plot_drift.html</loc></url>
 <url><loc>https://mqfarooqi1.github.io/dataProfilerR/reference/plot_missing.html</loc></url>
 <url><loc>https://mqfarooqi1.github.io/dataProfilerR/reference/plot_pairs.html</loc></url>
+<url><loc>https://mqfarooqi1.github.io/dataProfilerR/reference/plot_target.html</loc></url>
 <url><loc>https://mqfarooqi1.github.io/dataProfilerR/reference/print.data_profile.html</loc></url>
 <url><loc>https://mqfarooqi1.github.io/dataProfilerR/reference/profile_data.html</loc></url>
 <url><loc>https://mqfarooqi1.github.io/dataProfilerR/reference/report.html</loc></url>
