@@ -1,34 +1,31 @@
-## Resubmission
+## Update to version 0.3.0
 
-This is a resubmission (version 0.2.1) addressing the two points raised in the
-initial CRAN review:
+This is a feature update. New functionality:
 
-* Added references for the statistical methods to the Description field, in the
-  requested `authors (year) <doi:...>` / `(year, ISBN:...)` form. These cite the
-  algorithms actually used: Royston (1995) <doi:10.2307/2986146> for the
-  Shapiro-Wilk test (R's implementation), Stephens (1974)
-  <doi:10.1080/01621459.1974.10480196> for the Anderson-Darling EDF statistic,
-  Yap and Sim (2011) <doi:10.1080/00949655.2010.520163> for power comparisons of
-  these normality tests, and Cramer (1946, ISBN:9780691080048) for the
-  categorical association measure.
-* Removed all modification of `.GlobalEnv`. `normality_tests()` previously saved,
-  set, and restored `.Random.seed` to subsample large columns; it now uses a
-  deterministic, evenly-spaced subsample and does not call `set.seed()` or touch
-  the global RNG state. The `seed` argument was removed accordingly.
+* `analyze_target()` / `plot_target()` — rank features by their association with
+  a target column (absolute Pearson correlation, correlation ratio eta, or
+  Cramer's V, on a common 0-1 scale).
+* `compare_datasets()` / `plot_drift()` — detect distribution drift between two
+  data frames using the population stability index plus a Kolmogorov-Smirnov
+  (numeric) or chi-squared (categorical) test per column.
+
+Existing functions are unchanged; the update is backward compatible.
 
 ## R CMD check results
 
 Local `R CMD check --as-cran` (Windows 11, R 4.5.2): 0 errors | 0 warnings |
-1 note (the standard "New submission").
+0 notes.
+
+* The only WARNING seen locally is `'qpdf' is needed for checks on size
+  reduction of PDFs` — an artifact of qpdf not being installed on the local
+  machine; it does not occur on systems with qpdf (e.g. CRAN).
 
 ## Notes
 
-* All examples run quickly; figure/report examples are wrapped in `\donttest{}`
-  and the report example additionally guards on pandoc.
-* Functions that write files (the `report()` example and the tests) write only
-  to `tempdir()`.
-* The Anderson-Darling test degrades gracefully when the suggested package
-  `nortest` is not installed.
+* Any "possibly misspelled words" are statistical terms (PSI, eta) and proper
+  names (Cramer, Kolmogorov, Smirnov); these are listed in `inst/WORDLIST`.
+* Functions do not write to the user's file space or modify the global
+  environment. New plotting helpers return `ggplot` objects.
 
 ## Test environments
 

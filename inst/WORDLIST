@@ -1,7 +1,13 @@
 Cramer
 Cutoff
 EDA
+Kolmogorov
+PSI
+Smirnov
+Wilk
+categorical
 erroring
+eta
 etc
 ggplot
 incl
@@ -15,5 +21,4 @@ sd
 serialisable
 standalone
 walkthrough
-Wilk
 zscore

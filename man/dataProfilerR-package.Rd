@@ -25,6 +25,7 @@ an EDA result object does not need.
 Useful links:
 \itemize{
   \item \url{https://github.com/mqfarooqi1/dataProfilerR}
+  \item \url{https://mqfarooqi1.github.io/dataProfilerR/}
   \item Report bugs at \url{https://github.com/mqfarooqi1/dataProfilerR/issues}
 }
 

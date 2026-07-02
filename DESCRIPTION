@@ -1,6 +1,6 @@
 Package: dataProfilerR
 Title: Automated Exploratory Data Analysis and Dataset Profiling
-Version: 0.2.1
+Version: 0.3.0
 Authors@R:
     person("Muhammad", "Farooqi", email = "mqfarooqi@gmail.com",
            role = c("aut", "cre"))

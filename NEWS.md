@@ -1,3 +1,17 @@
+# dataProfilerR 0.3.0
+
+New features:
+
+* `analyze_target()` ranks every feature by its association with a chosen target
+  column, adapting the measure to the variable types (absolute Pearson
+  correlation, the correlation ratio eta, or Cramer's V) so numeric and
+  categorical predictors are comparable on a common 0-1 scale. `plot_target()`
+  visualises the ranking.
+* `compare_datasets()` detects distribution drift between two data frames
+  (e.g. train vs test), reporting the population stability index (PSI) plus a
+  Kolmogorov-Smirnov (numeric) or chi-squared (categorical) test per column.
+  `plot_drift()` charts the per-column PSI.
+
 # dataProfilerR 0.2.1
 
 Changes requested during the initial CRAN review:
