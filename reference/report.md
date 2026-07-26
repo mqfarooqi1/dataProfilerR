@@ -51,6 +51,6 @@ if (requireNamespace("rmarkdown", quietly = TRUE) &&
   p <- profile_data(iris)
   f <- report(p, file.path(tempdir(), "iris_report.html"))
 }
-#> Report written to /tmp/RtmpQMdkz0/iris_report.html
+#> Report written to /tmp/Rtmpsqg6GP/iris_report.html
 # }
 ```
