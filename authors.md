@@ -14,7 +14,7 @@ and Dataset Profiling*. R package version 0.2.1,
 <https://CRAN.R-project.org/package=dataProfilerR>.
 
     @Manual{,
-      title = {{dataProfilerR}: Automated Exploratory Data Analysis and Dataset Profiling},
+      title = {{dataProfilerR: Automated Exploratory Data Analysis and Dataset Profiling}},
       author = {Muhammad Farooqi},
       year = {2026},
       note = {R package version 0.2.1},
