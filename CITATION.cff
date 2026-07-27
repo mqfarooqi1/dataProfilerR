@@ -1,0 +1,19 @@
+cff-version: 1.2.0
+message: "If you use dataProfilerR, please cite it as below."
+title: "dataProfilerR: Automated Exploratory Data Analysis and Dataset Profiling"
+abstract: >-
+  Profiles a data frame with minimal input: column type inference, missing-value analysis, distributional statistics, normality tests, outlier detection, correlation and categorical association, and an overall data-quality score.
+type: software
+authors:
+  - given-names: Muhammad
+    family-names: Farooqi
+    email: mqfarooqi@gmail.com
+    orcid: "https://orcid.org/0000-0003-4918-9791"
+version: 0.2.1
+date-released: "2026-07-27"
+license: MIT
+repository-code: "https://github.com/mqfarooqi1/dataProfilerR"
+url: "https://CRAN.R-project.org/package=dataProfilerR"
+keywords:
+  - R
+  - CRAN
